@@ -1,68 +1,104 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# Proof of Concept - Frameworks CSS with React
 
-In the project directory, you can run:
+## Tools used
 
-### `yarn start`
+- [Ant Design](https://ant.design/)
+- [Tailwind CSS](https://tailwindcss.com/)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Configurations Tutorial
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### Ant Design
 
-### `yarn test`
+1. Install: `npm install antd` or `yarn add antd`
+2. Import in global styles file: `@import "~antd/dist/antd.css"`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<hr/>
 
-### `yarn build`
+### Tailwind CSS
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+\*Recommended to use the VSCode extension: Tailwind CSS IntelliSense
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+This tutorial was made based on this another tutorial: [Setting Up Tailwind CSS In A React Project](https://www.smashingmagazine.com/2020/02/tailwindcss-react-project)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### 1. Getting started
 
-### `yarn eject`
+**1.1. Install devDependencies:**
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```bash
+npm install --save-dev tailwindcss postcss-cli autoprefixer
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+OR
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```bash
+yarn add -D tailwindcss postcss-cli autoprefixer
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+**1.2. Initialize Tailwind CSS by creating the default configurations.**
 
-## Learn More
+```bash
+npx tailwind init tailwind.js --full
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+This command creates a `tailwind.js` in project’s base directory; the file contains the configuration, such as our colors, themes, media queries, and so on. It’s a useful file that helps with predefined sets of properties which will aid the need to re-brand certain conventions or properties if the need arises.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<br/>
 
-### Code Splitting
+#### 2. Configure [PostCSS](https://github.com/postcss/postcss)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+**2.1. Create a PostCSS configuration file in base directory with this name:** `postcss.config.js`
 
-### Analyzing the Bundle Size
+**2.2. Add the following lines of code to `postcss.config.js`:**
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+```js
+const tailwindcss = require("tailwindcss");
+module.exports = {
+  plugins: [tailwindcss("./tailwind.js"), require("autoprefixer")],
+};
+```
 
-### Making a Progressive Web App
+<br/>
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+#### 3. Inject Tailwind's components, utilities and base styles on app
 
-### Advanced Configuration
+**3.1. Create the following file:** `src/themes/tailwind.config.css`
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+**3.2. Import the base styles and configuration on file `src/themes/tailwind.config.css`:**
 
-### Deployment
+```css
+@tailwind base;
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+@tailwind components;
 
-### `yarn build` fails to minify
+@tailwind utilities;
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+<br/>
+
+#### 4. Configure the app to build CSS
+
+**Edit the script part on `package.json` file:**
+
+```json
+"tailwind:css": "postcss src/theme/tailwind.config.css -o src/theme/tailwind.css",
+"start": "npm run tailwind:css && react-scripts start",
+"build": "npm run tailwind:css && react-scripts build",
+```
+
+<br/>
+
+#### 5. Import CSS
+
+Import the CSS file appropriately to ensure that it’s properly watched and built when we run `npm start` or `yarn start`.
+
+**5.1. Import the `src/theme/tailwind.css` file on `src/index.js`:**
+
+```js
+import "./theme/tailwind.css";
+```
+
+<br/>
+
+#### 6. Enjoy! :)

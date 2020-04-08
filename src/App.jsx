@@ -4,23 +4,16 @@ import { Layout, Avatar, Menu, Breadcrumb } from "antd";
 import Title from "antd/lib/typography/Title";
 import { MailOutlined } from "@ant-design/icons";
 
-import "./App.css";
+import "./theme/global.css";
 
 const { Header, Footer, Sider, Content } = Layout;
-const { SubMenu, ItemGroup } = Menu;
 
 function App() {
   return (
     <div className="App">
       <Layout>
         {/* HEADER */}
-        <Header
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-          }}
-        >
+        <Header className="flex items-center justify-between">
           <Title level={3} style={{ color: "#FFF", margin: 0 }}>
             Ant Design
           </Title>
@@ -30,7 +23,7 @@ function App() {
           />
         </Header>
 
-        <Layout style={{ minHeight: "93vh" }}>
+        <Layout className="min-h-screen">
           {/* SIDE MENU */}
           <Sider>
             <Menu
@@ -41,7 +34,7 @@ function App() {
             >
               <Menu.Item key="dashboard">Dashboard</Menu.Item>
 
-              <SubMenu
+              <Menu.SubMenu
                 title={
                   <span>
                     <MailOutlined />
@@ -49,29 +42,29 @@ function App() {
                   </span>
                 }
               >
-                <ItemGroup title="About US">
+                <Menu.ItemGroup title="About US">
                   <Menu.Item>Location 1</Menu.Item>
-                </ItemGroup>
-              </SubMenu>
+                </Menu.ItemGroup>
+              </Menu.SubMenu>
             </Menu>
           </Sider>
 
           {/* MAIN */}
           <Layout>
             {/* CONTENT */}
-            <Content style={{ padding: "0 50px" }}>
-              <Breadcrumb style={{ margin: "16px 0" }}>
+            <Content className="px-8">
+              <Breadcrumb className="py-4">
                 <Breadcrumb.Item>Home</Breadcrumb.Item>
                 <Breadcrumb.Item>Dashboard</Breadcrumb.Item>
               </Breadcrumb>
 
-              <div style={{ background: "#FFF", padding: 24, minHeight: 580 }}>
+              <div className="bg-white p-6" style={{ minHeight: 580 }}>
                 Content
               </div>
             </Content>
 
             {/* FOOTER */}
-            <Footer style={{ textAlign: "center" }}>
+            <Footer className="text-center">
               Ant Design Layout Example Created by Murilo Cunha
             </Footer>
           </Layout>
