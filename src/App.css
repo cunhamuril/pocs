@@ -1,0 +1,10 @@
+@import "~antd/dist/antd.css";
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+
+  box-sizing: border-box;
+}
