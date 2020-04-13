@@ -1,8 +1,10 @@
 import React from "react";
 import { Layout, Avatar, Menu } from "antd";
 import Title from "antd/lib/typography/Title";
-import { MailOutlined } from "@ant-design/icons";
+import { MailOutlined, RocketOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
+
+import tutorials from "../../mock/tutorials.json";
 
 import "../../theme/global.css";
 
@@ -37,7 +39,22 @@ export default ({ children }) => {
 
             <Menu.SubMenu
               title={
-                <span>
+                <span className="flex items-center">
+                  <RocketOutlined />
+                  <span>Tutorials</span>
+                </span>
+              }
+            >
+              {tutorials.map((tutorial) => (
+                <Menu.Item key={tutorial.id}>
+                  <Link to={tutorial.path}>{tutorial.title}</Link>
+                </Menu.Item>
+              ))}
+            </Menu.SubMenu>
+
+            <Menu.SubMenu
+              title={
+                <span className="flex items-center">
                   <MailOutlined />
                   <span>About</span>
                 </span>
