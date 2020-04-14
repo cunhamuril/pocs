@@ -4,6 +4,7 @@ import { Card } from "antd";
 import tutorials from "../../mock/tutorials.json";
 
 import ContentWrapper from "../../components/ContentWrapper";
+import { Link } from "react-router-dom";
 
 const Dashboard = () => {
   const [loading, setLoading] = useState(true);
@@ -26,18 +27,19 @@ const Dashboard = () => {
       </h1>
       <div className="mt-6 w-full max-w-5xl flex items-stretch justify-evenly flex-wrap">
         {tutorials.map((tutorial) => (
-          <Card
-            key={tutorial.id}
-            hoverable
-            className="w-64 mb-4"
-            cover={<img alt={tutorial.title} src={tutorial.thumbnail} />}
-            loading={loading}
-          >
-            <Card.Meta
-              title={tutorial.title}
-              description={tutorial.description}
-            />
-          </Card>
+          <Link key={tutorial.id} to={tutorial.path}>
+            <Card
+              hoverable
+              className="w-64 mb-4"
+              cover={<img alt={tutorial.title} src={tutorial.thumbnail} />}
+              loading={loading}
+            >
+              <Card.Meta
+                title={tutorial.title}
+                description={tutorial.description}
+              />
+            </Card>
+          </Link>
         ))}
       </div>
     </ContentWrapper>
