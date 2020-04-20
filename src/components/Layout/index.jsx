@@ -1,8 +1,13 @@
 import React from "react";
 import { Layout, Avatar, Menu } from "antd";
 import Title from "antd/lib/typography/Title";
-import { MailOutlined, RocketOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
+import {
+  MailOutlined,
+  RocketOutlined,
+  AppstoreOutlined,
+  FormOutlined,
+} from "@ant-design/icons";
 
 import tutorials from "../../mock/tutorials.json";
 
@@ -34,7 +39,12 @@ export default ({ children }) => {
             theme="dark"
           >
             <Menu.Item key="dashboard">
-              <Link to="/">Dashboard</Link>
+              <Link to="/">
+                <span className="flex items-center">
+                  <AppstoreOutlined />
+                  <span>Dashboard</span>
+                </span>
+              </Link>
             </Menu.Item>
 
             <Menu.SubMenu
@@ -51,6 +61,15 @@ export default ({ children }) => {
                 </Menu.Item>
               ))}
             </Menu.SubMenu>
+
+            <Menu.Item key="form">
+              <Link to="/form">
+                <span className="flex items-center">
+                  <FormOutlined />
+                  <span>Form</span>
+                </span>
+              </Link>
+            </Menu.Item>
 
             <Menu.SubMenu
               title={
