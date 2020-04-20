@@ -1,11 +1,11 @@
 import React from "react";
 
-import TutorialLayout from "../../../components/TutorialLayout";
+import Article from "../../../components/Article";
 
 import { content } from "./data";
 
 const PurgeCss = () => {
-  return <TutorialLayout content={content} pageTitle="PurgeCSS" />;
+  return <Article content={content} title="PurgeCSS" />;
 };
 
 export default PurgeCss;

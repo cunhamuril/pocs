@@ -1,11 +1,11 @@
 import React from "react";
 
-import TutorialLayout from "../../../components/TutorialLayout";
+import Article from "../../../components/Article";
 
 import { content } from "./data";
 
 const AntDesign = () => {
-  return <TutorialLayout content={content} pageTitle="Ant Design" />;
+  return <Article content={content} title="Ant Design" />;
 };
 
 export default AntDesign;

@@ -1,11 +1,11 @@
 import React from "react";
 
-import TutorialLayout from "../../../components/TutorialLayout";
+import Article from "../../../components/Article";
 
 import { content } from "./data";
 
 const TailwindCss = () => {
-  return <TutorialLayout content={content} pageTitle="Tailwind CSS" />;
+  return <Article content={content} title="Tailwind CSS" />;
 };
 
 export default TailwindCss;

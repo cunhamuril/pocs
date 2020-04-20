@@ -1,0 +1,33 @@
+/* Articles Styles */
+article code {
+  padding: 2px 8px;
+
+  border-radius: 2px;
+
+  background-color: #eee;
+}
+
+article a {
+  color: #1890ff;
+}
+
+article h4 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 8px auto 4px;
+}
+
+article pre,
+article pre code {
+  color: #fff;
+  background-color: #282a36;
+}
+
+article pre {
+  width: 100%;
+
+  margin: 10px auto;
+  padding: 10px 15px;
+
+  border-radius: 2px;
+}

@@ -29,7 +29,7 @@ const purgecss = require("@fullhuman/postcss-purgecss")({
     // etc.
   ],
 
-  // Include any special characters you're using in this regular expression
+  // Include any special characters you're using in this regular expression 
   defaultExtractor: (content) => content.match(/[\w-/:]+(?<!:)/g) || [],
 });
 
