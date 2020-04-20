@@ -10,7 +10,7 @@ const Dashboard = () => {
   const [loading, setLoading] = useState(true);
 
   /**
-   * Test loading
+   * Just testing loading
    */
   useEffect(() => {
     const timeOut = setTimeout(() => {
@@ -25,13 +25,20 @@ const Dashboard = () => {
       <h1 className="font-bold text-indigo-700 text-center text-xl">
         Proof of Concept - Frameworks CSS with React
       </h1>
-      <div className="mt-6 w-full max-w-5xl flex items-stretch justify-evenly flex-wrap">
+      <div className="mt-6 w-full max-w-5xl flex justify-evenly flex-wrap">
         {tutorials.map((tutorial) => (
           <Link key={tutorial.id} to={tutorial.path}>
             <Card
               hoverable
               className="w-64 mb-4"
-              cover={<img alt={tutorial.title} src={tutorial.thumbnail} />}
+              style={{ minHeight: "18rem" }}
+              cover={
+                <img
+                  alt={tutorial.title}
+                  src={tutorial.thumbnail}
+                  className="h-40 object-cover"
+                />
+              }
               loading={loading}
             >
               <Card.Meta
