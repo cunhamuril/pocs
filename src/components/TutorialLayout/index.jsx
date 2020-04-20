@@ -5,7 +5,7 @@ import marked from "../../config/marked";
 
 import ContentWrapper from "../ContentWrapper";
 
-const AntDesign = ({ content, pageTitle }) => {
+const TutorialLayout = ({ content, pageTitle }) => {
   // Replace all occurences ~ to `
   const { __html } = marked(content.replace(/~/g, "`"));
 
@@ -17,4 +17,4 @@ const AntDesign = ({ content, pageTitle }) => {
   );
 };
 
-export default AntDesign;
+export default TutorialLayout;

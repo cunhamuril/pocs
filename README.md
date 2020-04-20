@@ -104,7 +104,7 @@ import "./theme/tailwind.css";
 
 #### 6. Add the `src/theme/tailwind.css` file to `.gitignore` file:
 
-```.git
+```
 /src/theme/tailwind.css
 ```
 

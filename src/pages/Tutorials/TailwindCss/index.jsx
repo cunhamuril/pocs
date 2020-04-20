@@ -1,13 +1,11 @@
 import React from "react";
 
-import ContentWrapper from "../../../components/ContentWrapper";
+import TutorialLayout from "../../../components/TutorialLayout";
+
+import { content } from "./data";
 
 const TailwindCss = () => {
-  return (
-    <ContentWrapper pageTitle="Tailwind CSS">
-      <h1 className="text-2xl text-blue-700 font-bold">Tailwind CSS</h1>
-    </ContentWrapper>
-  );
+  return <TutorialLayout content={content} pageTitle="Tailwind CSS" />;
 };
 
 export default TailwindCss;
