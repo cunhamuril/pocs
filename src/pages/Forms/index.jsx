@@ -5,8 +5,9 @@ import ContentWrapper from "../../components/ContentWrapper";
 
 import DynamicForm from "./DynamicForm";
 import LoginForm from "./LoginForm";
+import RegistrationForm from "./RegistrationForm";
 
-const FormComponent = () => {
+const Forms = () => {
   const onFinish = (values) => {
     console.log("Success:", values);
   };
@@ -27,8 +28,14 @@ const FormComponent = () => {
           <LoginForm onFinish={onFinish} onFinishFailed={onFinishFailed} />
         </Col>
       </Row>
+
+      <Row>
+        <Col xs={24} className="bg-blue-300 p-3">
+          <RegistrationForm onFinish={onFinish} />
+        </Col>
+      </Row>
     </ContentWrapper>
   );
 };
 
-export default FormComponent;
+export default Forms;
