@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Card } from "antd";
+import { Card, message, Tooltip } from "antd";
 
 import tutorials from "../../mock/tutorials.json";
 
@@ -20,6 +20,10 @@ const Dashboard = () => {
     return () => clearTimeout(timeOut);
   }, []);
 
+  const success = () => {
+    message.success("This is a success message");
+  };
+
   return (
     <ContentWrapper pageTitle="Dashboard">
       <h1 className="font-bold text-indigo-700 text-center text-xl">
@@ -27,25 +31,27 @@ const Dashboard = () => {
       </h1>
       <div className="mt-6 w-full max-w-5xl flex justify-evenly flex-wrap">
         {tutorials.map((tutorial) => (
-          <Link key={tutorial.id} to={tutorial.path}>
-            <Card
-              hoverable
-              className="w-64 mb-4"
-              style={{ minHeight: "18rem" }}
-              cover={
-                <img
-                  alt={tutorial.title}
-                  src={tutorial.thumbnail}
-                  className="h-40 object-cover"
+          <Link key={tutorial.id} to={tutorial.path} onClick={success}>
+            <Tooltip title={tutorial.title} placement="bottom">
+              <Card
+                hoverable
+                className="w-64 mb-4"
+                style={{ minHeight: "18rem" }}
+                cover={
+                  <img
+                    alt={tutorial.title}
+                    src={tutorial.thumbnail}
+                    className="h-40 object-cover"
+                  />
+                }
+                loading={loading}
+              >
+                <Card.Meta
+                  title={tutorial.title}
+                  description={tutorial.description}
                 />
-              }
-              loading={loading}
-            >
-              <Card.Meta
-                title={tutorial.title}
-                description={tutorial.description}
-              />
-            </Card>
+              </Card>
+            </Tooltip>
           </Link>
         ))}
       </div>

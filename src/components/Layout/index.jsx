@@ -1,7 +1,7 @@
 import React from "react";
-import { Layout, Avatar, Menu } from "antd";
+import { Layout, Avatar, Menu, Popover } from "antd";
 import Title from "antd/lib/typography/Title";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import {
   MailOutlined,
   RocketOutlined,
@@ -23,10 +23,21 @@ export default ({ children }) => {
         <Title level={3} style={{ color: "#FFF", margin: 0 }}>
           Ant Design
         </Title>
-        <Avatar
-          size="large"
-          src="https://api.adorable.io/avatars/285/cunha.png"
-        />
+        <Popover
+          title="Mock User"
+          placement="bottomLeft"
+          content={
+            <>
+              <p>Content</p>
+            </>
+          }
+        >
+          <label className="text-white mr-2">Hover me</label>
+          <Avatar
+            size="large"
+            src="https://api.adorable.io/avatars/285/cunha.png"
+          />
+        </Popover>
       </Header>
 
       <Layout className="min-h-screen">
@@ -39,12 +50,12 @@ export default ({ children }) => {
             theme="dark"
           >
             <Menu.Item key="dashboard">
-              <Link to="/">
+              <NavLink to="/">
                 <span className="flex items-center">
                   <AppstoreOutlined />
                   <span>Dashboard</span>
                 </span>
-              </Link>
+              </NavLink>
             </Menu.Item>
 
             <Menu.SubMenu
@@ -57,18 +68,18 @@ export default ({ children }) => {
             >
               {tutorials.map((tutorial) => (
                 <Menu.Item key={tutorial.id}>
-                  <Link to={tutorial.path}>{tutorial.title}</Link>
+                  <NavLink to={tutorial.path}>{tutorial.title}</NavLink>
                 </Menu.Item>
               ))}
             </Menu.SubMenu>
 
             <Menu.Item key="form">
-              <Link to="/forms">
+              <NavLink to="/forms">
                 <span className="flex items-center">
                   <FormOutlined />
                   <span>Forms</span>
                 </span>
-              </Link>
+              </NavLink>
             </Menu.Item>
 
             <Menu.SubMenu
