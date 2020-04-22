@@ -10,10 +10,7 @@ const ContentWrapper = ({ pageTitle, children }) => (
       <Item>{pageTitle}</Item>
     </Breadcrumb>
 
-    <div
-      className="bg-white p-6 flex flex-col items-center"
-      style={{ minHeight: 580 }}
-    >
+    <div className="bg-white p-6" style={{ minHeight: 580 }}>
       {children}
     </div>
   </>

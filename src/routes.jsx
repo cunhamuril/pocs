@@ -2,7 +2,7 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 
 import Dashboard from "./pages/Dashboard";
-import FormComponent from "./pages/FormComponent";
+import Forms from "./pages/Forms";
 
 import AntDesign from "./pages/Tutorials/AntDesign";
 import TailwindCss from "./pages/Tutorials/TailwindCss";
@@ -16,6 +16,6 @@ export default () => (
     <Route path="/tutorial/tailwind-css" exact component={TailwindCss} />
     <Route path="/tutorial/purge-css" exact component={PurgeCss} />
 
-    <Route path="/form" exact component={FormComponent} />
+    <Route path="/forms" exact component={Forms} />
   </Switch>
 );

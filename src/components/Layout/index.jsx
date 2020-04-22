@@ -63,10 +63,10 @@ export default ({ children }) => {
             </Menu.SubMenu>
 
             <Menu.Item key="form">
-              <Link to="/form">
+              <Link to="/forms">
                 <span className="flex items-center">
                   <FormOutlined />
-                  <span>Form</span>
+                  <span>Forms</span>
                 </span>
               </Link>
             </Menu.Item>
