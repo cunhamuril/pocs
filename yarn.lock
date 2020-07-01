@@ -3001,6 +3001,11 @@ clone-deep@^4.0.1:
     kind-of "^6.0.2"
     shallow-clone "^3.0.0"
 
+clsx@^1.0.4:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/clsx/-/clsx-1.1.1.tgz#98b3134f9abbdf23b2663491ace13c5c03a73188"
+  integrity sha512-6/bPho624p3S2pMyvP5kKBPXnI3ufHLObBFCfgx+LkeR5lg2XYy2hqZqUf45ypD8COn2bhgGJSUE+l5dhNBieA==
+
 co@^4.6.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/co/-/co-4.6.0.tgz#6ea6bdf3d853ae54ccb8e47bfa0bf3f9031fb184"
@@ -3264,6 +3269,11 @@ core-js@^2.4.0:
   version "2.6.11"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.11.tgz#38831469f9922bded8ee21c9dc46985e0399308c"
   integrity sha512-5wjnpaT/3dV+XB4borEsnAYQchn00XSgTAWKDkEqv+K8KevjbzmofK6hfJ9TZIlpj2N0xQpazy7PiRQiWHqzWg==
+
+core-js@^3.4.2:
+  version "3.6.5"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.6.5.tgz#7395dc273af37fb2e50e9bd3d9fe841285231d1a"
+  integrity sha512-vZVEEwZoIsI+vPEuoF9Iqf5H7/M3eeQqWlQnYa8FSKKePuYTf5MWnxb5SDAzCa60b3JBRS5g9b+Dq7b1y/RCrA==
 
 core-js@^3.5.0:
   version "3.6.4"
@@ -9358,6 +9368,15 @@ react-html-parser@^2.0.2:
   dependencies:
     htmlparser2 "^3.9.0"
 
+react-image-crop@^8.6.4:
+  version "8.6.4"
+  resolved "https://registry.yarnpkg.com/react-image-crop/-/react-image-crop-8.6.4.tgz#51289c22baf7d116575102e885f879af71376388"
+  integrity sha512-5buyhUg9slzW+QGvN2dbpGSI1VqPxxmfEwe19TZXUB7LjW5+ljZOnrTSsteIzeBqmz6ngVucc8l+OrwgcDOSNg==
+  dependencies:
+    clsx "^1.0.4"
+    core-js "^3.4.2"
+    prop-types "^15.7.2"
+
 react-is@^16.12.0, react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.4:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
@@ -9456,6 +9475,11 @@ react-scripts@3.4.1:
     workbox-webpack-plugin "4.3.1"
   optionalDependencies:
     fsevents "2.1.2"
+
+react-use-file-reader@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-use-file-reader/-/react-use-file-reader-1.0.0.tgz#2e44f9d6aad1234f89566b445b8108d31f3202f2"
+  integrity sha512-952GITYnVudeH2ErkHIQ2R5GFbBqqhXHcP9ixUVaD63VPNOvADN4MlGYhAx6ysV5dTdgk7NQS5igNSYB8J2MMA==
 
 react@^16.13.1:
   version "16.13.1"

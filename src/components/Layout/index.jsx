@@ -7,6 +7,7 @@ import {
   RocketOutlined,
   AppstoreOutlined,
   FormOutlined,
+  FileImageFilled,
 } from "@ant-design/icons";
 
 import tutorials from "../../mock/tutorials.json";
@@ -54,6 +55,14 @@ export default ({ children }) => {
                 <span className="flex items-center">
                   <AppstoreOutlined />
                   <span>Dashboard</span>
+                </span>
+              </NavLink>
+            </Menu.Item>
+            <Menu.Item key="image-crop">
+              <NavLink to="/image-crop">
+                <span className="flex items-center">
+                  <FileImageFilled />
+                  <span>Image crop</span>
                 </span>
               </NavLink>
             </Menu.Item>
