@@ -7,7 +7,7 @@ import {
   RocketOutlined,
   AppstoreOutlined,
   FormOutlined,
-  FileImageFilled,
+  FileImageOutlined,
 } from "@ant-design/icons";
 
 import tutorials from "../../mock/tutorials.json";
@@ -22,7 +22,7 @@ export default ({ children }) => {
       {/* HEADER */}
       <Header className="flex items-center justify-between">
         <Title level={3} style={{ color: "#FFF", margin: 0 }}>
-          Ant Design
+          PoC
         </Title>
         <Popover
           title="Mock User"
@@ -33,7 +33,7 @@ export default ({ children }) => {
             </>
           }
         >
-          <label className="text-white mr-2">Hover me</label>
+          <label className="text-white mr-2">Murilaum</label>
           <Avatar
             size="large"
             src="https://api.adorable.io/avatars/285/cunha.png"
@@ -61,8 +61,16 @@ export default ({ children }) => {
             <Menu.Item key="image-crop">
               <NavLink to="/image-crop">
                 <span className="flex items-center">
-                  <FileImageFilled />
+                  <FileImageOutlined />
                   <span>Image crop</span>
+                </span>
+              </NavLink>
+            </Menu.Item>
+            <Menu.Item key="easy-crop">
+              <NavLink to="/easy-crop">
+                <span className="flex items-center">
+                  <FileImageOutlined />
+                  <span>Easy crop</span>
                 </span>
               </NavLink>
             </Menu.Item>

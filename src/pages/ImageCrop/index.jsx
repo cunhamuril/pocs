@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from "react";
-import { Button } from "antd";
+import { Button, message } from "antd";
 import ReactCrop from "react-image-crop";
 import "react-image-crop/dist/ReactCrop.css";
 
@@ -65,6 +65,8 @@ function ImageCrop() {
 
     const newFile = new File([croppedImage.blob], "test.jpeg");
 
+    message.info("File is on dev tools console");
+
     console.log(newFile);
   };
 
@@ -87,7 +89,6 @@ function ImageCrop() {
             <ReactCrop
               src={preview}
               keepSelection
-              locked
               ruleOfThirds
               crop={crop}
               onChange={(newCrop) => setCrop(newCrop)}
