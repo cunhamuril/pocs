@@ -1,18 +1,20 @@
 import React, { useState, useMemo } from "react";
 import Cropper from "react-easy-crop";
-import { Button, Slider, message } from "antd";
+import { Button, Slider, message, Radio, Select } from "antd";
 
 import getCroppedImg from "./cropImage";
 
 function EasyCrop() {
   const [photoFile, setPhotoFile] = useState(null);
   const [croppedImage, setCroppedImage] = useState(null);
+  const [aspectRatio, setAspectRatio] = useState([1, 1]);
   const [cropperConfig, setCropperConfig] = useState({
     crop: { x: 0, y: 0 },
     zoom: 1,
-    aspect: 1 / 1,
     croppedAreaPixels: null,
     isCropping: false,
+    shape: "rect",
+    showGrid: true,
   });
 
   const preview = useMemo(() => {
@@ -77,18 +79,70 @@ function EasyCrop() {
         />
 
         {preview && (
-          <div className="bg-indigo-500 p-1 w-1/3 rounded-lg">
-            <label className="text-white">Zoom</label>
-            <Slider
-              className="mb-5"
-              value={cropperConfig.zoom}
-              min={1}
-              max={3}
-              step={0.1}
-              onChange={(value) =>
-                setCropperConfig({ ...cropperConfig, zoom: value })
-              }
-            />
+          <div className="bg-indigo-500 p-1 rounded-lg flex justify-evenly items-stretch">
+            <div className="text-white w-1/3">
+              <label>Zoom</label>
+              <Slider
+                className="mb-5"
+                value={cropperConfig.zoom}
+                min={1}
+                max={3}
+                step={0.1}
+                onChange={(value) =>
+                  setCropperConfig({ ...cropperConfig, zoom: value })
+                }
+              />
+            </div>
+
+            <div className="flex flex-col">
+              <label className="text-white">Shape</label>
+              <Radio.Group
+                buttonStyle="solid"
+                defaultValue={cropperConfig.shape}
+                value={cropperConfig.shape}
+                onChange={(e) =>
+                  setCropperConfig({ ...cropperConfig, shape: e.target.value })
+                }
+              >
+                <Radio.Button value="rect">Rect</Radio.Button>
+                <Radio.Button value="round">Rounded</Radio.Button>
+              </Radio.Group>
+            </div>
+
+            <div className="flex flex-col">
+              <label className="text-white">Show grid?</label>
+              <Radio.Group
+                buttonStyle="solid"
+                defaultValue={cropperConfig.showGrid}
+                value={cropperConfig.showGrid}
+                onChange={(e) =>
+                  setCropperConfig({
+                    ...cropperConfig,
+                    showGrid: e.target.value,
+                  })
+                }
+              >
+                <Radio.Button value={true}>Yes</Radio.Button>
+                <Radio.Button value={false}>No</Radio.Button>
+              </Radio.Group>
+            </div>
+
+            <div className="flex flex-col">
+              <label className="text-white">Aspect</label>
+              <Select
+                buttonStyle="solid"
+                defaultValue={`${aspectRatio[0]}:${aspectRatio[1]}`}
+                value={`${aspectRatio[0]}:${aspectRatio[1]}`}
+                onChange={(value) => setAspectRatio(value)}
+                className="w-32"
+              >
+                <Select.Option value={[1, 1]}>1:1</Select.Option>
+                <Select.Option value={[4, 3]}>4:3</Select.Option>
+                <Select.Option value={[16, 9]}>16:9</Select.Option>
+                <Select.Option value={[1.85, 1]}>1.85:1</Select.Option>
+                <Select.Option value={[2.35, 1]}>2.35:1</Select.Option>
+              </Select>
+            </div>
           </div>
         )}
 
@@ -102,10 +156,12 @@ function EasyCrop() {
                 image={preview}
                 crop={cropperConfig.crop}
                 zoom={cropperConfig.zoom}
-                aspect={cropperConfig.aspect}
+                aspect={aspectRatio[0] / aspectRatio[1]}
                 onCropChange={handleCropChange}
                 onCropComplete={handleCropComplete}
                 onZoomChange={handleZoomChange}
+                cropShape={cropperConfig.shape}
+                showGrid={cropperConfig.showGrid}
               />
             </div>
           )}
@@ -113,7 +169,11 @@ function EasyCrop() {
           {croppedImage && (
             <img
               src={croppedImage}
-              style={{ width: 400, height: 400 }}
+              style={{
+                width: 400,
+                height: "auto",
+                borderRadius: cropperConfig.shape === "round" ? "50%" : "unset",
+              }}
               alt="cropped"
             />
           )}
@@ -122,7 +182,9 @@ function EasyCrop() {
         <Button htmlType="button" onClick={showResult}>
           Show Result
         </Button>
-        <Button htmlType="submit">Save</Button>
+        <Button className="ml-1" htmlType="submit">
+          Save
+        </Button>
       </form>
     </div>
   );
