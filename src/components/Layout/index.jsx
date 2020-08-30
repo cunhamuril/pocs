@@ -99,6 +99,15 @@ export default ({ children }) => {
               </NavLink>
             </Menu.Item>
 
+            <Menu.Item key="formik-yup">
+              <NavLink to="/formik-yup">
+                <span className="flex items-center">
+                  <FormOutlined />
+                  <span>Formik Yup</span>
+                </span>
+              </NavLink>
+            </Menu.Item>
+
             <Menu.SubMenu
               title={
                 <span className="flex items-center">

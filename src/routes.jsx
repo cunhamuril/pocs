@@ -5,6 +5,7 @@ import Dashboard from "./pages/Dashboard";
 import Forms from "./pages/Forms";
 import ImageCrop from "./pages/ImageCrop";
 import EasyCrop from "./pages/EasyCrop";
+import FormikYup from "./pages/FormikYup";
 
 import AntDesign from "./pages/Tutorials/AntDesign";
 import TailwindCss from "./pages/Tutorials/TailwindCss";
@@ -15,6 +16,7 @@ export default () => (
     <Route path="/" exact component={Dashboard} />
     <Route path="/image-crop" exact component={ImageCrop} />
     <Route path="/easy-crop" exact component={EasyCrop} />
+    <Route path="/formik-yup" exact component={FormikYup} />
 
     <Route path="/tutorial/ant-design" exact component={AntDesign} />
     <Route path="/tutorial/tailwind-css" exact component={TailwindCss} />

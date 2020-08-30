@@ -8,6 +8,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "antd": "^4.1.1",
+    "formik": "^2.1.5",
     "highlight.js": "^9.18.1",
     "marked": "^0.8.2",
     "react": "^16.13.1",
@@ -17,7 +18,8 @@
     "react-image-crop": "^8.6.4",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
-    "react-use-file-reader": "^1.0.0"
+    "react-use-file-reader": "^1.0.0",
+    "yup": "^0.29.3"
   },
   "scripts": {
     "start": "npm run tailwind:css && react-scripts start",
