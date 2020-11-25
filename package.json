@@ -9,7 +9,7 @@
     "@testing-library/user-event": "^7.1.2",
     "antd": "^4.1.1",
     "formik": "^2.1.5",
-    "highlight.js": "^9.18.1",
+    "highlight.js": "^10.1.2",
     "marked": "^0.8.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
