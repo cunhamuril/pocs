@@ -8,7 +8,7 @@ import {
   AppstoreOutlined,
   FormOutlined,
   FileImageOutlined,
-  EnvironmentOutlined
+  EnvironmentOutlined,
 } from "@ant-design/icons";
 
 import tutorials from "../../mock/tutorials.json";
@@ -114,6 +114,15 @@ export default ({ children }) => {
                 <span className="flex items-center">
                   <EnvironmentOutlined />
                   <span>Map</span>
+                </span>
+              </NavLink>
+            </Menu.Item>
+
+            <Menu.Item key="datatable">
+              <NavLink to="/datatable">
+                <span className="flex items-center">
+                  <FileImageOutlined />
+                  <span>Data Table</span>
                 </span>
               </NavLink>
             </Menu.Item>
